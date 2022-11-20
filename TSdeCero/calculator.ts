@@ -12,4 +12,4 @@ const calculator = (a: number, b: number, op: Operation): Result  =>{
   throw new Error ("Operation is not valid!")
 }
 
-console.log(process.argv)
+console.log(calculator(4,3, "multiply"))
