@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <link href="style.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <div>
+      <h2 id="titulo-principal">Practica Js Html Css</h2>
+    </div>
+
+
+    <main>
+
+      <div class="bodyCalc">
+
+        <div class="resultadoDiv">
+          <input type="text" id="resultado"  placeholder="0" >
+        </div>
+
+        <div class="numContainer">
+          <button class="sButton" onclick="numeros(7)">7</button>
+          <button class="sButton" onclick="numeros(8)">8</button>
+          <button class="sButton" onclick="numeros(9)">9</button>
+          <button class="sButtonS" onclick="numeros('+')">+</button>
+        </div>
+
+        <div class="numContainer">
+          <button class="sButton" onclick="numeros(4)">4</button>
+          <button class="sButton" onclick="numeros(5)">5</button>
+          <button class="sButton" onclick="numeros(6)">6</button>
+          <button class="sButtonS" onclick="numeros('-')">-</button>
+        </div>
+
+        <div class="numContainer">
+          <button class="sButton" onclick="numeros(1)">1</button>
+          <button class="sButton" onclick="numeros(2)">2</button>
+          <button class="sButton" onclick="numeros(3)">3</button>
+          <button class="sButtonS" onclick="numeros('/')">/</button>
+        </div>
+
+        <div class="numContainer">
+          <button class="sButtonC" onclick="resetear()">C</button>
+          <button class="sButton" onclick="numeros(0)">0</button>
+          <button class="sButtonC" onclick="numeros('.')">.</button>
+          <button class="sButtonS" onclick="numeros('*')">x</button>
+        </div>
+
+        <div class="numContainer2">
+          <button class="sButton"><</button>
+          <button class="sButton">></button>
+          <button class="sButton2" onclick="operacion()">=</button>
+
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div>
+        <p><small>Pagina hecha por Kennito</small></p>
+      </div>
+    </footer>
+    <script src="main.js"></script>
+  </body>
+</html>
