@@ -1,11 +1,10 @@
 {
-  "name": "tsdecero",
+  "name": "typescriptcero",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "run:calculator": "ts-node calculator.ts", 
-    "run:multiplier": "ts-node multiplier.ts",
+    "run: multiplier": "ts-node multiplier.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
