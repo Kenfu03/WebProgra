@@ -51,25 +51,32 @@ function App(): JSX.Element {
                   ref={taskInput}
                   autoFocus
                 />
-                <button className="btn btn-outline-success mt-2">
-                  Save Task
-                </button>
+                <div className="card mt-2">
+                  <button
+                    className="btn btn-outline-success"
+                    onClick={() => handleSubmit}
+                  >
+                    Save Task
+                  </button>
+                </div>
               </form>
             </div>
           </div>
 
           {tasks.map((t: iTask, i: number) => (
             <div className="card card-body mt-2" key={i}>
-              <h2 style={{ textDecoration: t.done ? "line-through" : "" }}>
+              <button
+                className="btn btn-info"
+                onClick={() => toggleDoneTask(i)}
+                style={
+                  { backgroundColor: t.done ? "#99ff99" : "#FF9999" } || {
+                    textDecoration: t.done ? "line-through" : "",
+                  }
+                }
+              >
                 {t.name}
-              </h2>
+              </button>
               <div>
-                <button
-                  className="btn btn-secundary"
-                  onClick={() => toggleDoneTask(i)}
-                >
-                  {t.done ? "✓" : "X"}
-                </button>
                 <button className="btn btn-dark" onClick={() => removeTask(i)}>
                   Borrar
                 </button>
