@@ -1,7 +1,7 @@
 import React, { Children, useState } from "react";
 import "./SearchTree.css";
 
-const files = {
+const files: TEntry = {
   children: [
     {
       name: "Extremo Park",
@@ -11,19 +11,15 @@ const files = {
           children: [
             {
               name: "Extranjero",
-              valor: "$ 54 ",
             },
             {
               name: "Nacional",
-              valor: "$ 34 ",
             },
             {
               name: "Niño",
-              valor: "$ 20 ",
             },
             {
               name: "Estudiante",
-              valor: "$ 36 ",
             },
           ],
         },
@@ -50,6 +46,7 @@ const files = {
       name: "100% Aventura",
     },
   ],
+  name: ""
 };
 
 type TEntry = {
@@ -57,6 +54,8 @@ type TEntry = {
   children?: TEntry[];
   // valor: string;
 };
+
+type FormElement = React.FormEvent<HTMLFormElement>;
 
 function Entry({ entry, depth }: { entry: TEntry; depth: number }) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -73,12 +72,63 @@ function Entry({ entry, depth }: { entry: TEntry; depth: number }) {
       )}
 
       {isExpanded && (
-        <div style={{ paddingLeft: `${depth * 30}px`}}>
+        <div style={{ paddingLeft: `${depth * 30}px` }}>
           {entry.children?.map((entry) => (
             <Entry entry={entry} depth={depth + 1} />
           ))}
         </div>
       )}
+    </div>
+  );
+}
+
+
+function AddEmpresa() {
+  const [newEmpresa, SetnewEmpresa] = useState<TEntry>(files);
+
+  var prueba: string = "";
+  var prueba2: string = "";
+  var prueba3: string = "";
+
+  const handleSubmit = (e: FormElement) => {
+    e.preventDefault();
+    SetnewEmpresa({
+      children: [ 
+        {
+          name: prueba,
+          children: [
+            {
+              name: prueba2,
+              children: [
+                {
+                  name: prueba3,
+                })
+                name: ""
+  };
+
+  return (
+    <div className="add__item-container">
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          onChange={(e) => {
+            prueba = e.target.value;
+          }}
+        />
+        <input
+          type="text"
+          onChange={(e) => {
+            prueba2 = e.target.value;
+          }}
+        />
+        <input
+          type="text"
+          onChange={(e) => {
+            prueba3 = e.target.value;
+          }}
+        />
+        <button>Agregar Empresa</button>
+      </form>
     </div>
   );
 }
@@ -91,6 +141,7 @@ function SearchTree() {
           <Entry entry={entry} depth={1} />
         ))}
       </div>
+      <AddEmpresa />
     </div>
   );
 }
