@@ -1,4 +1,3 @@
-import React, { useState, useRef } from "react";
 import { TaskApp, Calculator, SearchTree } from "./containers";
 import "./App.css";
 
