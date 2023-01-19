@@ -1,6 +1,6 @@
 .numero {
     background-color: #5e5c64;
-    box-shadow: 0 7px 0 0 #3a3544;
+    box-shadow: -6px 6px 0px 0px rgba(58,53,68,1);
     color: white;
     width: 60px;
     height: 50px;
@@ -10,7 +10,7 @@
 
 .funcion {
     background-color: #ff7900;
-    box-shadow: 0 7px 0 0 #c74400;
+    box-shadow: -6px 6px 0px 0px #c74400;
     color: white;
     width: 60px;
     height: 50px;
@@ -20,7 +20,7 @@
 
 .operacion {
     background-color: #9b9a97;
-    box-shadow: 0 7px 0 0 #5e5c64;
+    box-shadow: -6px 6px 0px 0px #5e5c64;
     color: white;
     width: 60px;
     height: 50px;
@@ -28,12 +28,12 @@
     border: none;
 }
 
-.operacion2 {
-    background-color: #9b9a97;
-    box-shadow: 0 7px 0 0 #5e5c64;
+.numero2 {
+    background-color: #5e5c64;
+    box-shadow: -6px 6px 0px 0px rgba(58,53,68,1);
     color: white;
-    width: 60px;
-    border-radius: 20%;
-    height: 115px;
+    width: 135px;
+    border-radius: 10px;
+    height: 50px;
     border: none;
 }
