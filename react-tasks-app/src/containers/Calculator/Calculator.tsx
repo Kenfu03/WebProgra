@@ -2,6 +2,8 @@ import React from "react";
 import "./Calculator.css";
 import { CalcButton } from "../../components/CalcButton/CalcButton";
 
+
+
 export const Calculator = () => {
   return (
     <div className="calc">
@@ -9,7 +11,7 @@ export const Calculator = () => {
       <div className="calc-botton_side"></div>
       <div className="calc-container">
         <div className="calc-text_container">
-          <input type="text" className="calc-operations" />
+          <input type="text" id="texto" className="calc-operations" />
         </div>
         <div className="calc-button_container">
           <CalcButton tipo="funcion" valor="AC"></CalcButton>
