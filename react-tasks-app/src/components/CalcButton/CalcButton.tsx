@@ -1,6 +1,7 @@
 import React from "react";
 import "./CalcButton.css";
-import { Calculator } from "../../containers";
+import "../../containers/Calculator/Calculator";
+import { Calculator} from "../../containers/Calculator/Calculator";
 
 
 interface buttonTypers {
@@ -12,16 +13,13 @@ let dat: string = "";
 let firstNum: number = 0;
 let secondNum: number = 0;
 let ope:string = "";
-let result:number;
+let result:string;
 
 
 const addNumber = (dato: string, type:string ) => {
   if (dato === "=") {
     secondNum = Number(dat)
-    if (ope === "+") {
-      result = (firstNum + secondNum)
-      console.log(result.toString())
-    }
+    calcOperation(firstNum, secondNum, ope)
     }
 
   else if (type === "operacion"){
@@ -34,7 +32,10 @@ const addNumber = (dato: string, type:string ) => {
   }
 };
 
-const calcOperation = () => {};
+const calcOperation = (firstNum:Number, secondNum:Number, ope:string) => {
+  result = (firstNum + ope.replace(/"/g, "") + secondNum)
+  console.log(result.replace(/"/g, ""))
+};
 
 export function CalcButton(props: buttonTypers) {
   return (
