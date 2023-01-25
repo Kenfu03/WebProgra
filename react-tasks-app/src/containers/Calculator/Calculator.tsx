@@ -1,103 +1,72 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Calculator.css";
-import "./CalcButton.css";
+import "./CalcButton/CalcButton.css";
 
-const botones: string[][] = [
-  ["AC", "funcion"],
-  ["CE", "funcion"],
-  ["%", "operacion"],
-  ["÷", "operacion"],
-  ["7", "numero"],
-  ["8", "numero"],
-  ["9", "numero"],
-  ["x", "operacion"],
-  ["4", "numero"],
-  ["5", "numero"],
-  ["6", "numero"],
-  ["-", "operacion"],
-  ["1", "numero"],
-  ["2", "numero"],
-  ["3", "numero"],
-  ["+", "operacion"],
-  ["0", "numero2"],
-  [".", "numero"],
-  ["=", "funcion"],
-  
-]
-
-interface buttonTypers {
+interface buttonsTypers {
   tipo: string;
   valor: string;
 }
 
 
-
-let dat: string = "";
-let firstNum: number;
-let secondNum: number;
-let ope: string = "";
-let result: string;
-
-const addNumber = (dato: string, type: string) => {
-  let element = document.getElementById("texto1");
-  console.log(element);
-
-  if (element) {
-    element.textContent = dat;
-  }
-
-  if (type === "funcion") {
-    if (dato === "=") {
-      secondNum = Number(dat);
-      calcOperation(firstNum, secondNum, ope);
-    } else if (dato === "AC") {
-      dat = "";
-      firstNum = 0;
-      secondNum = 0;
-      ope = "";
-    } else {
-      dat = "";
-    }
-  } else if (type === "operacion") {
-    firstNum = Number(dat);
-    dat = "";
-    ope = dato;
-  } else {
-    dat = dat.concat(dato);
-  }
-};
-
-const calcOperation = (firstNum: Number, secondNum: Number, ope: string) => {
-  result = firstNum + ope.replace(/"/g, "") + secondNum;
-  console.log(result.replace(/"/g, ""));
-};
-
-function CalcButton(props: buttonTypers) {
-  return (
-    <button
-      className={props.tipo}
-      onClick={() => addNumber(props.valor, props.tipo)}
-    >
-      {props.valor}
-    </button>
-  );
-}
-
 export const Calculator = () => {
+
+  const [value, setValue] = useState("");
+
+  const calcFunctions = (valor:string) => {
+    if (valor === "AC"){
+      setValue("")
+    }
+    if (valor === "CE"){
+
+    }
+  }
+
+  const calc = (tipo:string, valor:string) => {
+    if (tipo === "funcion"){
+      calcFunctions(valor)
+    }
+  }
+
+  const deleteAll = (): void => {
+    setValue("")
+  }
+
+  function CalcButton2({onPress}:HTMLInputElement) {
+
+    return (
+      <button
+        onClick={onPress}
+      >
+        2
+      </button>
+    );
+  }
+
+  function CalcButton(props: buttonsTypers) {
+
+    return (
+      <button
+        className={props.tipo}
+        onClick={() => calc(props.tipo, props.valor); props.tipo === "funcion"  && calcFunctions(props.valor)}
+      >
+        {props.valor}
+      </button>
+    );
+  }
+
   return (
     <div className="calc">
       <div className="calc-left_side"></div>
       <div className="calc-botton_side"></div>
       <div className="calc-container">
-        <div className="calc-text_container">
-          <p id="texto1"></p>
-        </div>
-
+        <input
+          type="text"
+          id="texto1"
+          className="calc-operations"
+          value={value}
+        />
         <div className="calc-button_container">
-          {
-            botones.forEach(ele => console.log(ele))};
-          {/* <input type="text" id="texto1" className="calc-operations"/> */}
-          {/* <CalcButton tipo="funcion" valor="AC"></CalcButton>
+          <CalcButton2 onPress={calc("funcion", "AC")}></CalcButton2>
           <CalcButton tipo="funcion" valor="CE"></CalcButton>
           <CalcButton tipo="operacion" valor="%"></CalcButton>
           <CalcButton tipo="operacion" valor="÷"></CalcButton>
@@ -115,7 +84,7 @@ export const Calculator = () => {
           <CalcButton tipo="operacion" valor="+"></CalcButton>
           <CalcButton tipo="numero2" valor="0"></CalcButton>
           <CalcButton tipo="numero" valor="."></CalcButton>
-          <CalcButton tipo="funcion" valor="="></CalcButton> */}
+          <CalcButton tipo="funcion" valor="="></CalcButton>
         </div>
       </div>
     </div>
