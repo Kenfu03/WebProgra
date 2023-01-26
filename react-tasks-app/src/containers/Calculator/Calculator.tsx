@@ -17,7 +17,7 @@ export const Calculator = () => {
       setValue("")
     }
     if (valor === "CE"){
-
+      value.length >= 1 && value.slice(0,1)
     }
   }
 
@@ -27,27 +27,16 @@ export const Calculator = () => {
     }
   }
 
-  const deleteAll = (): void => {
-    setValue("")
-  }
-
-  function CalcButton2({onPress}:HTMLInputElement) {
-
-    return (
-      <button
-        onClick={onPress}
-      >
-        2
-      </button>
-    );
-  }
+  // const deleteAll = (): void => {
+  //   setValue("")
+  // }
 
   function CalcButton(props: buttonsTypers) {
 
     return (
       <button
         className={props.tipo}
-        onClick={() => calc(props.tipo, props.valor); props.tipo === "funcion"  && calcFunctions(props.valor)}
+        onClick={() => calc(props.tipo, props.valor)}
       >
         {props.valor}
       </button>
@@ -66,7 +55,7 @@ export const Calculator = () => {
           value={value}
         />
         <div className="calc-button_container">
-          <CalcButton2 onPress={calc("funcion", "AC")}></CalcButton2>
+          <CalcButton tipo="funcion" valor= "AC"></CalcButton>
           <CalcButton tipo="funcion" valor="CE"></CalcButton>
           <CalcButton tipo="operacion" valor="%"></CalcButton>
           <CalcButton tipo="operacion" valor="÷"></CalcButton>
