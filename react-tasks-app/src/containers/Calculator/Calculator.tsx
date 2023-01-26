@@ -10,14 +10,21 @@ interface buttonsTypers {
 
 export const Calculator = () => {
 
+  const [resFlag, setResFlag] = useState(true);
+
   const [value, setValue] = useState("");
 
   const calcFunctions = (valor:string) => {
+
     if (valor === "AC"){
       setValue("")
     }
-    if (valor === "CE"){
-      value.length >= 1 && value.slice(0,1)
+    else if (valor === "CE"){
+      value.length >= 1 && setValue(value.slice(0,-1))
+    }
+    else {
+      setResFlag(true)
+      setValue(eval(value))
     }
   }
 
@@ -25,11 +32,18 @@ export const Calculator = () => {
     if (tipo === "funcion"){
       calcFunctions(valor)
     }
-  }
+    else {
+      console.log("flag " + resFlag, "numero ", tipo === "numero")
+      if (resFlag && tipo === "numero") {
+        setValue(valor)
+        setResFlag(false)
+      }
+      else {
+        setValue(value + valor)
+      }
 
-  // const deleteAll = (): void => {
-  //   setValue("")
-  // }
+    }
+  }
 
   function CalcButton(props: buttonsTypers) {
 
@@ -52,6 +66,7 @@ export const Calculator = () => {
           type="text"
           id="texto1"
           className="calc-operations"
+          onChange={(e) => calc("numero",e.target.value)}
           value={value}
         />
         <div className="calc-button_container">
