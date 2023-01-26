@@ -11,7 +11,6 @@ function App(): JSX.Element {
       <SearchTree></SearchTree>
     </div>
   );
-    
 }
 
 export default App;

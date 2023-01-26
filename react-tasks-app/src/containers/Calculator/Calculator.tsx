@@ -7,50 +7,57 @@ interface buttonsTypers {
   valor: string;
 }
 
-
 export const Calculator = () => {
-
   const [resFlag, setResFlag] = useState(true);
-
+  const [firstVal, setFirstVal] = useState("");
+  const [ope, setOpe] = useState("");
   const [value, setValue] = useState("");
 
-  const calcFunctions = (valor:string) => {
-
-    if (valor === "AC"){
-      setValue("")
-    }
-    else if (valor === "CE"){
-      value.length >= 1 && setValue(value.slice(0,-1))
-    }
-    else {
-      setResFlag(true)
-      setValue(eval(value))
-    }
-  }
-
-  const calc = (tipo:string, valor:string) => {
-    if (tipo === "funcion"){
-      calcFunctions(valor)
-    }
-    else {
-      console.log("flag " + resFlag, "numero ", tipo === "numero")
-      if (resFlag && tipo === "numero") {
-        setValue(valor)
-        setResFlag(false)
+  const calcFunctions = (valor: string) => {
+    if (valor === "AC") {
+      setValue("");
+    } else if (valor === "CE") {
+      value.length >= 1 && setValue(value.slice(0, -1));
+    } else {
+      if (value === ""){
+        setValue("Faltan Datos")
+      }
+      else if (firstVal === ""){
+        setFirstVal(value)
+        setValue("")
       }
       else {
-        setValue(value + valor)
+        setValue(eval(firstVal + ope + value));
+        setFirstVal("");
+        setOpe("")
       }
-
     }
-  }
+  };
+
+  const calcOperations = (valor: string) => {
+    setOpe(valor);
+    setFirstVal(value);
+    setValue("");
+  };
+
+  const calc = (tipo: string, valor: string) => {
+    if (tipo === "funcion") {
+      calcFunctions(valor);
+    } else if (tipo === "operacion") {
+      calcOperations(valor);
+    } else {
+      setValue(value + valor);
+    }
+  };
 
   function CalcButton(props: buttonsTypers) {
-
     return (
       <button
         className={props.tipo}
-        onClick={() => calc(props.tipo, props.valor)}
+        onClick={() => {
+          calc(props.tipo, props.valor)
+           
+          }}
       >
         {props.valor}
       </button>
@@ -66,11 +73,11 @@ export const Calculator = () => {
           type="text"
           id="texto1"
           className="calc-operations"
-          onChange={(e) => calc("numero",e.target.value)}
+          onChange={(e) => calc("numero", e.target.value.charAt(e.target.value.length-1))}
           value={value}
         />
         <div className="calc-button_container">
-          <CalcButton tipo="funcion" valor= "AC"></CalcButton>
+          <CalcButton tipo="funcion" valor="AC"></CalcButton>
           <CalcButton tipo="funcion" valor="CE"></CalcButton>
           <CalcButton tipo="operacion" valor="%"></CalcButton>
           <CalcButton tipo="operacion" valor="÷"></CalcButton>
