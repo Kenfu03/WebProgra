@@ -21,6 +21,8 @@
     width: 60px;
     height: 50px;
     border: none;
+    border-style: solid;
+    border-color: #a88c43;
 }
 
 .numero2 {
