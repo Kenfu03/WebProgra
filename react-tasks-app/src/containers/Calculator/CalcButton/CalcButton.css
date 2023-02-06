@@ -1,39 +1,33 @@
 .numero {
-    background-color: #5e5c64;
-    box-shadow: -6px 6px 0px 0px rgba(58,53,68,1);
-    color: white;
+    background-color: #132019;
+    color: #a88c43;
     width: 60px;
     height: 50px;
-    border-radius: 20%;
-    border: none;
+    border-style: solid;
+    border-color: #a88c43;
 }
 
 .funcion {
-    background-color: #ff7900;
-    box-shadow: -6px 6px 0px 0px #c74400;
+    background-color: #a88c43;
     color: white;
     width: 60px;
     height: 50px;
-    border-radius: 20%;
     border: none;
 }
 
 .operacion {
-    background-color: #9b9a97;
-    box-shadow: -6px 6px 0px 0px #5e5c64;
+    background-color: rgb(29, 49, 38);
     color: white;
     width: 60px;
     height: 50px;
-    border-radius: 20%;
     border: none;
 }
 
 .numero2 {
-    background-color: #5e5c64;
-    box-shadow: -6px 6px 0px 0px rgba(58,53,68,1);
-    color: white;
+    background-color: #132019;
+    color: #a88c43;
     width: 135px;
-    border-radius: 10px;
     height: 50px;
-    border: none;
+    border-style: solid;
+    border-color: #a88c43;
 }

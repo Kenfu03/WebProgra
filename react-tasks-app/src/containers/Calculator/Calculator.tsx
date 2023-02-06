@@ -66,8 +66,6 @@ export const Calculator = () => {
 
   return (
     <div className="calc">
-      <div className="calc-left_side"></div>
-      <div className="calc-botton_side"></div>
       <div className="calc-container">
         <input
           type="text"
@@ -84,7 +82,7 @@ export const Calculator = () => {
           <CalcButton tipo="numero" valor="7"></CalcButton>
           <CalcButton tipo="numero" valor="8"></CalcButton>
           <CalcButton tipo="numero" valor="9"></CalcButton>
-          <CalcButton tipo="operacion" valor="x"></CalcButton>
+          <CalcButton tipo="operacion" valor="*"></CalcButton>
           <CalcButton tipo="numero" valor="4"></CalcButton>
           <CalcButton tipo="numero" valor="5"></CalcButton>
           <CalcButton tipo="numero" valor="6"></CalcButton>

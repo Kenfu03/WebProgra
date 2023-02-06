@@ -1,4 +1,41 @@
 .AppContainer {
   display: grid;
-  grid-template-columns: repeat(3, 2fr);
+  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 600px);
+
+  background: hsla(148, 27%, 26%, 1);
+
+  background: radial-gradient(
+    circle,
+    hsla(148, 27%, 26%, 1) 0%,
+    hsla(148, 25%, 10%, 1) 98%
+  );
+
+  background: -moz-radial-gradient(
+    circle,
+    hsla(148, 27%, 26%, 1) 0%,
+    hsla(148, 25%, 10%, 1) 98%
+  );
+
+  background: -webkit-radial-gradient(
+    circle,
+    hsla(148, 27%, 26%, 1) 0%,
+    hsla(148, 25%, 10%, 1) 98%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#305441", endColorstr="#132019", GradientType=1 );
+}
+
+.second {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+}
+
+.third {
+  grid-column: 3 / 4;
+}
+
+.childs {
+  width: 400px;
 }

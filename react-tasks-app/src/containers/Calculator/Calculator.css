@@ -1,52 +1,22 @@
 .calc {
+
   display: flex;
   justify-content: flex-start;
-
-  background-color: #81A963;
 
   height: auto;
   width: auto;
 
 }
 
-.calc-left_side {
-  height: 525px;
-  width: 40px;
-  background-color: #c2c2c2;
-  position: relative;
-  transform: rotate(-10deg);
-  left: 82px;
-  top: 74px;
-  border-radius: 600px 0px 0px 400px;
-}
-
-.calc-botton_side {
-  height: 375px;
-  width: 40px;
-  background-color: #c2c2c2;
-  border: black;
-  position: relative;
-  transform: rotate(80deg);
-  top: 358px;
-  left: 250px;
-  border-radius: 0px 600px 400px 0px;
-}
-
-
 .calc-container {
   height: 500px;
-  width: 350px;
-  position: relative;
-  left: 25px;
-  top: 41px;
+  width: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px;
-  background-color: #dfdedb;
-  border-radius: 20px 20px 20px 20px;
-  transform: rotate(-10deg);
+  background-color: #132019;
 }
 
 .calc-button_container {
