@@ -25,6 +25,16 @@
     border-color: #a88c43;
 }
 
+.operacion2 {
+    background-color: var(--co-primary);
+    color: var(--co-special);
+    width: 60px;
+    height: 50px;
+    border: none;
+    border-style: solid;
+    border-color: var(--co-special);
+}
+
 .numero2 {
     background-color: #132019;
     color: #a88c43;

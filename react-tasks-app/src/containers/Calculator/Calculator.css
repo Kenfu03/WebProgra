@@ -27,13 +27,19 @@
   gap: 15px;
 }
 
-.calc-text_container {
-}
-
 .calc-operations {
+    font-size: 34px;
+    font-family: var(--font-primary);
+    font-weight: 300;
+
     margin: 1rem 2rem;
     width: 285px;
     height: 60px;
-    border-radius: 3%;
+    background-color: var(--co-bg);
+    direction: rtl;
+    color: var(--co-primary);
+    border: solid;
+    border-color: var(--co-special);
+  
 
 }
