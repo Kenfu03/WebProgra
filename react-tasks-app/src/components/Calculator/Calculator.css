@@ -1,0 +1,33 @@
+.calc {
+  display: flex;
+  justify-content: flex-start;
+
+  height: auto;
+  width: auto;
+}
+
+.calc-container {
+  height: 500px;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #1320199d;
+}
+
+.calc-operations {
+  font-size: 34px;
+  font-family: var(--font-primary);
+  font-weight: 300;
+
+  margin: 1rem 2rem;
+  width: 285px;
+  height: 60px;
+  background-color: var(--co-bg);
+  direction: rtl;
+  color: var(--co-primary);
+  border: solid;
+  border-color: var(--co-special);
+}

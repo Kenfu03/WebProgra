@@ -1,5 +1,5 @@
-import { TaskApp, Calculator, SearchTree } from "./containers";
-import { DivEnclouser } from "./components";
+import { TaskApp, Calculator, SearchTree } from "./components";
+import { DivEnclouser } from "./containers";
 import hojas from "./assets/img/hojas.jpg";
 import "./App.css";
 

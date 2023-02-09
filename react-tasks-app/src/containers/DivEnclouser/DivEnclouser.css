@@ -1,0 +1,74 @@
+.Decoration_container {
+  display: grid;
+  grid-template-columns: 10px 10px auto 10px 10px;
+  grid-template-rows: 10px 10px auto 10px 10px;
+}
+
+.aplication {
+  grid-column: 3 / span 1;
+  grid-row: 3 / span 1;
+}
+
+.horizontal-line {
+  grid-column-start: 5;
+  height: 5px;
+  width: 1000%;
+  position: relative;
+  right: 990%;
+  transform: rotate(180deg);
+}
+
+.vertical-line {
+  grid-column-start: 5;
+  grid-row-start: 2;
+
+  height: 5px;
+  width: 1000%;
+
+  transform: rotate(90deg);
+  position: relative;
+  right: 500%;
+  top: 370%;
+
+}
+
+.horizontal-line2 {
+    grid-column-start: 1;
+    grid-row-start: 5;
+    height: 5px;
+    width: 1000%;
+    position: relative;
+  }
+  
+  .vertical-line2 {
+    grid-column-start: 1;
+    grid-row-start: 5;
+  
+    height: 5px;
+    width: 1000%;
+  
+    transform: rotate(-90deg);
+    position: relative;
+    right: 500%;
+    bottom: 480%;
+  }
+
+.divColor {
+  background: rgb(168, 140, 67);
+  background: -moz-linear-gradient(
+    90deg,
+    rgba(168, 140, 67, 1) 0%,
+    rgba(168, 140, 67, 0.4990371148459384) 100%
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    rgba(168, 140, 67, 1) 0%,
+    rgba(168, 140, 67, 0.4990371148459384) 100%
+  );
+  background: linear-gradient(
+    90deg,
+    rgba(168, 140, 67, 1) 0%,
+    rgba(168, 140, 67, 0.4990371148459384) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#a88c43",endColorstr="#a88c43",GradientType=1);
+}

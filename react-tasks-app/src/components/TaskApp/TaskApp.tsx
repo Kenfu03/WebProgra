@@ -73,9 +73,7 @@ export const TaskApp = () => {
                 className="btn btn-info"
                 onClick={() => toggleDoneTask(i)}
                 style={
-                  { backgroundColor: t.done ? "#99ff99" : "#FF9999" } || {
-                    textDecoration: t.done ? "line-through" : "",
-                  }
+                  { backgroundColor: t.done ? "#99ff99" : "#FF9999" }
                 }
               >
                 {t.name}
