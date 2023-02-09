@@ -1,0 +1,112 @@
+.taskApp-container {
+  height: 500px;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: var(--co-bg);
+
+}
+
+.saveInput-container {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+}
+
+.form input {
+  font-size: 34px;
+  font-family: var(--font-primary);
+  font-weight: 300;
+
+  margin: 1rem 2rem 5px 2rem;
+
+  width: auto;
+  height: 50px;
+  background-color: var(--co-bg);
+  direction: rtl;
+  color: var(--co-primary);
+  border: groove;
+  border-color: var(--co-special);
+}
+
+.form button {
+  background-color: var(--co-secondary);
+  color: var(--co-primary);
+  width: auto;
+  height: 50px;
+  margin: 0 2rem;
+  border: none;
+
+  font-family: var(--font-primary);
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.tasks-container {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 410px;
+  height: auto;
+}
+
+.tasks {
+    display: flex;
+    justify-content: space-between;
+
+    font-family: var(--font-primary);
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.decorationDiv {
+    width: 10px;
+    height: 10px;
+    background-color: var(--co-special);
+    transform: rotate(45deg);
+}
+
+.task {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+
+    background: none;
+    color: var(--co-primary);
+    width: 385px;
+    height: auto;
+    border: none;
+
+    font-family: var(--font-primary);
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.deleteBtn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--co-special);
+    color: var(--co-primary);
+    width: auto;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+}
+
+.deleteBtn img{
+    height: 30px;
+    width: 25px;
+}

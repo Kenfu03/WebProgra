@@ -1,8 +1,8 @@
 import React, { useState, useRef } from "react";
 import "./TaskApp.css";
+import trash from "../../assets/img/trashcan.png";
 
 export const TaskApp = () => {
-
   type FormElement = React.FormEvent<HTMLFormElement>;
 
   interface iTask {
@@ -38,55 +38,37 @@ export const TaskApp = () => {
     setTasks(newTasks);
   };
 
-
   return (
-    <div className="container p-3">
-      <div>
-        <div className="col">
-          <div className="card">
-            <div className="card card-body">
-              <form onSubmit={handleSubmit}>
-                <input
-                  type="text"
-                  onChange={(e) => setNewTask(e.target.value)}
-                  value={newTask}
-                  className="form-control"
-                  ref={taskInput}
-                  autoFocus
-                />
-                <div className="card mt-2">
-                  <button
-                    className="btn btn-outline-success"
-                    onClick={() => handleSubmit}
-                  >
-                    Save Task
-                  </button>
-                </div>
-              </form>
-            </div>
+    <div className="taskApp-container">
+      <div className="saveInput-container">
+        <form onSubmit={handleSubmit} className="form">
+          <input
+            type="text"
+            onChange={(e) => setNewTask(e.target.value)}
+            value={newTask}
+            ref={taskInput}
+            autoFocus
+          />
+          <button onClick={() => handleSubmit}>Save Task</button>
+        </form>
+      </div>
+      <div className="tasks-container">
+        {tasks.map((t: iTask, i: number) => (
+          <div className="tasks" key={i}>
+            <button
+              className="task"
+              onClick={() => toggleDoneTask(i)}
+              style={{ textDecoration: t.done ? "line-through" : "" }}
+            >
+              <div className="decorationDiv"></div>
+              {t.name}
+            </button>
+            <button className="deleteBtn" onClick={() => removeTask(i)}>
+              <img src={trash} alt="basura" />
+            </button>
           </div>
-          
-
-          {tasks.map((t: iTask, i: number) => (
-            <div className="card card-body mt-2" key={i}>
-              <button
-                className="btn btn-info"
-                onClick={() => toggleDoneTask(i)}
-                style={
-                  { backgroundColor: t.done ? "#99ff99" : "#FF9999" }
-                }
-              >
-                {t.name}
-              </button>
-              <div>
-                <button className="btn btn-dark" onClick={() => removeTask(i)}>
-                  Borrar
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
+        ))}
       </div>
     </div>
   );
-}
+};

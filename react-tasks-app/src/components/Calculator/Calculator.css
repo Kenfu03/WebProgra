@@ -14,7 +14,7 @@
   justify-content: center;
   align-items: center;
   padding: 20px;
-  background-color: #1320199d;
+  background-color: var(--co-bg);
 }
 
 .calc-operations {
