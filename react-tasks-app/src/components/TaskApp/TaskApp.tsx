@@ -1,6 +1,8 @@
 import React, { useState, useRef } from "react";
 import "./TaskApp.css";
 import trash from "../../assets/img/trashcan.png";
+import { DecorationDiv } from "../../containers";
+
 
 export const TaskApp = () => {
   type FormElement = React.FormEvent<HTMLFormElement>;
@@ -44,6 +46,7 @@ export const TaskApp = () => {
         <form onSubmit={handleSubmit} className="form">
           <input
             type="text"
+            maxLength={40}
             onChange={(e) => setNewTask(e.target.value)}
             value={newTask}
             ref={taskInput}
@@ -59,8 +62,8 @@ export const TaskApp = () => {
               className="task"
               onClick={() => toggleDoneTask(i)}
               style={{ textDecoration: t.done ? "line-through" : "" }}
-            >
-              <div className="decorationDiv"></div>
+            > 
+              <DecorationDiv width={10} height={10} firstCo="#a88c43" secondCo="#ffffff" flag= {t.done} ></DecorationDiv>
               {t.name}
             </button>
             <button className="deleteBtn" onClick={() => removeTask(i)}>
