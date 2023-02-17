@@ -52,6 +52,8 @@
   font-family: var(--font-primary);
   font-size: 20px;
   font-weight: 300;
+
+  cursor: pointer;
 }
 
 .tasks-container {

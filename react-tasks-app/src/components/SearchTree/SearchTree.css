@@ -23,6 +23,8 @@
   font-family: var(--font-primary);
   font-size: 20px;
   font-weight: 300;
+
+  cursor: pointer;
 }
 
 .addDatos-container{
@@ -47,6 +49,8 @@
   color: var(--co-primary);
   border: groove;
   border-color: var(--co-special);
+
+  
 }
 
 .addDatos-container button {
@@ -59,4 +63,37 @@
   font-family: var(--font-primary);
   font-size: 20px;
   font-weight: 300;
+
+  cursor: pointer;
 }
+
+.infoTree-container {
+  padding: 0 2rem;
+  width: 360px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+}
+
+.infoTree-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  height: auto;
+
+  background: none;
+  color: var(--co-primary);
+  width: 385px;
+  height: auto;
+  border: none;
+
+  font-family: var(--font-primary);
+  font-size: 15px;
+  font-weight: 300;
+
+  cursor: pointer;
+}
+

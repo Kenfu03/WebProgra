@@ -83,55 +83,6 @@ function Entry({ entry, depth }: { entry: TEntry; depth: number }) {
 }
 
 
-function AddEmpresa() {
-  const [newEmpresa, SetnewEmpresa] = useState<TEntry>(files);
-
-  var prueba: string = "";
-  var prueba2: string = "";
-  var prueba3: string = "";
-
-  const handleSubmit = (e: FormElement) => {
-    e.preventDefault();
-    SetnewEmpresa({
-      children: [ 
-        {
-          name: prueba,
-          children: [
-            {
-              name: prueba2,
-              children: [
-                {
-                  name: prueba3,
-                })
-                name: ""
-  };
-
-  return (
-    <div className="add__item-container">
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          onChange={(e) => {
-            prueba = e.target.value;
-          }}
-        />
-        <input
-          type="text"
-          onChange={(e) => {
-            prueba2 = e.target.value;
-          }}
-        />
-        <input
-          type="text"
-          onChange={(e) => {
-            prueba3 = e.target.value;
-          }}
-        />
-        <button>Agregar Empresa</button>
-      </form>
-    </div>
-  );
-}
 
 function SearchTree() {
   return (
@@ -141,7 +92,6 @@ function SearchTree() {
           <Entry entry={entry} depth={1} />
         ))}
       </div>
-      <AddEmpresa />
     </div>
   );
 }

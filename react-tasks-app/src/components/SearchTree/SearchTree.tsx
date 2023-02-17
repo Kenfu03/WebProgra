@@ -6,13 +6,15 @@ type FormElement = React.FormEvent<HTMLFormElement>;
 
 interface iCategorys {
   name: string;
+  child?: iCategorys[];
 }
 
 export const SearchTree = () => {
   const taskInput = useRef<HTMLInputElement>(null);
-  
+
   const [switchInfo, setSwitchInfo] = useState(false);
   const [newCategory, setNewCategory] = useState("");
+  const [newSubCategory, setNewSubCategory] = useState("");
   const [categorys, setCategorys] = useState<iCategorys[]>([]);
 
   const changeData = () => {
@@ -20,22 +22,45 @@ export const SearchTree = () => {
   };
 
   const addE = (e: FormElement) => {
-    console.log(newCategory);
     e.preventDefault();
-    addCategory(newCategory);
+    addCategory(newCategory, newSubCategory);
     setNewCategory("");
   };
 
-  const addCategory = (name: string) => {
-    const newCategorys: iCategorys[] = [...categorys, { name }];
-    setCategorys(newCategorys);
+  const addCategory = (name: string, children: string) => {
+    if (newCategory !== "") {
+      if (newSubCategory !== "") {
+        const newCategorys: iCategorys[] = [...categorys, { name, [ children ] }];
+        setCategorys(newCategorys);
+      } else {
+        const newCategorys: iCategorys[] = [...categorys, { name }];
+        setCategorys(newCategorys);
+      }
+    }
+  };
+
+  const addDatos_input = () => {
+    return (
+      <input
+        type="text"
+        onChange={(e) => setNewSubCategory(e.target.value)}
+        value={newSubCategory}
+        placeholder="SubCategory"
+      />
+    );
   };
 
   const addDatosContainer = () => {
     return (
       <div className="addDatos-container">
         <form onSubmit={addE}>
-          <input type="text" onChange={(e) => setNewCategory(e.target.value)} value={newCategory} />
+          <input
+            type="text"
+            onChange={(e) => setNewCategory(e.target.value)}
+            value={newCategory}
+            placeholder="Category"
+          />
+          {newCategory !== "" && addDatos_input()}
           <button onClick={() => addE}>Agregar Category</button>
         </form>
       </div>
@@ -46,12 +71,10 @@ export const SearchTree = () => {
     return (
       <div className="infoTree-container">
         {categorys.map((t: iCategorys, i: number) => (
-          <div key={i}>
-            <button>
-              <DecorationDiv firstCo="#a88c43" />
-              <h1>{t.name}</h1>
-            </button>
-          </div>
+          <button className="infoTree-item">
+            <DecorationDiv firstCo="#a88c43" />
+            {t.name}
+          </button>
         ))}
       </div>
     );
@@ -59,12 +82,13 @@ export const SearchTree = () => {
 
   return (
     <div className="SearchTree-container">
-      <button className="ChangeDiv"
+      <button
+        className="ChangeDiv"
         onClick={() => {
           changeData();
         }}
       >
-        {switchInfo ? "Agregar Items" : "Arbol de busqueda"}
+        {switchInfo ? "Agregar / Eliminar" : "Arbol de busqueda"}
       </button>
       {switchInfo ? addDatosContainer() : infoTreeContainer()}
     </div>
