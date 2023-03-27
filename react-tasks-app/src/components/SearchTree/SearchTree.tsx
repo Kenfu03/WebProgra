@@ -30,8 +30,8 @@ export const SearchTree = () => {
   const addCategory = (name: string, children: string) => {
     if (newCategory !== "") {
       if (newSubCategory !== "") {
-        const newCategorys: iCategorys[] = [...categorys, { name, [ children ] }];
-        setCategorys(newCategorys);
+        // const newCategorys: iCategorys[] = [...categorys, { name, [ children ] }];
+        // setCategorys(newCategorys);
       } else {
         const newCategorys: iCategorys[] = [...categorys, { name }];
         setCategorys(newCategorys);
