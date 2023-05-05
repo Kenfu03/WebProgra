@@ -24,16 +24,18 @@
 }
 
 .form input {
+
   font-size: 34px;
   font-family: var(--font-primary);
   font-weight: 300;
 
   margin: 1rem 2rem 5px 2rem;
 
+  direction: rtl;
   width: auto;
   height: 50px;
   background-color: var(--co-bg);
-  direction: rtl;
+  
   color: var(--co-primary);
   border: groove;
   border-color: var(--co-special);
@@ -50,6 +52,8 @@
   font-family: var(--font-primary);
   font-size: 20px;
   font-weight: 300;
+
+  cursor: pointer;
 }
 
 .tasks-container {
@@ -69,12 +73,6 @@
     font-weight: 300;
 }
 
-.decorationDiv {
-    width: 10px;
-    height: 10px;
-    background-color: var(--co-special);
-    transform: rotate(45deg);
-}
 
 .task {
     display: flex;
