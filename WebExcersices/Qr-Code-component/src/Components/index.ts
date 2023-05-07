@@ -1,0 +1,1 @@
+export {default as QR_Component} from "./QR_Component/QR_Component"

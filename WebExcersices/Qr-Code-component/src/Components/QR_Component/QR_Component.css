@@ -1,0 +1,37 @@
+.qr-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 1rem;
+    margin: 4rem 1rem;
+    max-width: 310px;
+    border-radius: 16px;
+}
+
+.qr-container img {
+    width: 100%;
+    border-radius: 14px;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 1.5rem;
+}
+
+.text-container h1{
+    color: black;
+    font-size: 21px;
+    line-height: 1.4;
+    margin: 1em 0;
+}
+
+.text-container p {
+    color: gray;
+    font-size: 15px;
+    margin: 0;
+    margin-bottom: 1.5em;
+}
