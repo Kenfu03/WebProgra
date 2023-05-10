@@ -1,0 +1,119 @@
+.ageApp-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: white;
+    margin: 10px;
+    width: auto;
+    max-width: 400px;
+    padding: 1.5rem;
+    border-radius: 15px 15px 120px 15px;
+}
+
+.inputDate-container{
+    display: grid;
+    width: 100%;
+    justify-items: start;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 20px 50px 20px;
+}
+
+.inputDate-container p{
+    margin: 0;
+    padding-bottom: 5px;
+    color: var(--dark-gray);
+    letter-spacing: 3px;
+    font-size: 12px;
+}
+
+.inputDate-container input{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    width: 60%;
+    height: 40px;
+    border: 1px solid;
+    border-color: var(--light-gray);
+    border-radius: 6px;
+    padding: 5px 15px;
+}
+
+.inputDate-container input:hover{
+    border-color: var(--principal-color);
+}
+
+.inputDate-container .warning{
+    margin-top: 10px;
+    font-size: 10px;
+    display: none;
+    color: var(--secundary-color);
+}
+
+.inputDate-container #dayWarning {
+    grid-column-start: -4;
+    grid-column-end: -3;
+    display: block;
+
+}
+.inputDate-container #monthWarning {
+    grid-column-start: -3;
+    grid-column-end: -2;
+    /* display: block; */
+}
+
+.inputDate-container #yearWarning {
+    grid-column-start: -2;
+    grid-column-end: -1;
+    display: block;
+}
+
+.btn-container{
+    display: flex;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.line{
+    width: 100%;
+    height: 2px;
+    background-color: hsl(0, 0%, 86%);
+    border-radius: 3px;
+}
+
+.btn-container button{
+    background-color: var(--principal-color);
+    border: none;
+    border-radius: 50%;
+    position: absolute;
+    left: 40%;
+}
+
+.btn-container button img{
+    margin: 15px;
+    width: 30px;
+}
+
+.resultDate-container {
+    align-self: flex-start;
+    padding: 2rem 0;
+    line-height: 1.1;
+}
+
+.resultDate-container h1{
+    font-size: 50px;
+    font-weight: 8 00;
+    font-style: italic;
+    margin: 0;
+    color: var(--black-color);
+}
+
+.resultDate-container h1 p{
+    margin: 0;
+    display: inline;
+    color: var(--principal-color);
+}
+

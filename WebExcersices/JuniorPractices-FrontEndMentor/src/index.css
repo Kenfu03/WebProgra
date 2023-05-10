@@ -1,0 +1,21 @@
+:root {
+    background-color: lightblue;
+    font-family: 'Poppins', sans-serif;
+
+    --principal-color: hsl(259, 100%, 65%);
+    --secundary-color: hsl(0, 100%, 67%);
+    --light-gray: hsl(0, 0%, 86%);
+    --dark-gray:  hsl(0, 1%, 44%);
+    --black-color:  hsl(0, 0%, 8%);
+}
+
+input[type=number]{
+    -moz-appearance: textfield;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
