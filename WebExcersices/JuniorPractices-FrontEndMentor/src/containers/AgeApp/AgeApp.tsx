@@ -3,13 +3,12 @@ import "./AgeApp.css";
 import btnImage from "./assets/images/icon-arrow.svg";
 
 const AgeApp = () => {
-  let years: string = "38";
-  let months: string = "3";
-  let days: string = "26";
-  let month: number = 0;
-  const [dayWarning, setDayWarning] = useState<string>("");
-  const [monthWarning, setmonthWarning] = useState<string>("");
-  const [yearWarning, setyearWarning] = useState<string>("");
+  const date:Date = new Date();
+  let maxDays:number = 31;
+  const actualDay:number = date.getDate();
+  const actualMonth:number = date.getUTCMonth()+1;
+  const actualYear:number = date.getFullYear();
+
 
   const verifyContent = (inputData: HTMLInputElement) => {
     if (
@@ -24,12 +23,17 @@ const AgeApp = () => {
         }
         inputData.value = inputData.value.slice(0, 2);
         if (inputData.getAttribute("id") === "dayInput") {
-          if (+inputData.value > 31) {
-            inputData.value = "31";
+          if (+inputData.value > maxDays) {
+            inputData.value = maxDays + "";
           } else if (+inputData.value < 0) {
             inputData.value = "00";
           }
         } else if (inputData.getAttribute("id") === "monthInput") {
+          for (let i:number=1;i<=12;i++){
+            if (+inputData.value === 2){
+
+            }
+          }
           if (+inputData.value > 12) {
             inputData.value = "12";
           } else if (+inputData.value < 0) {
@@ -37,9 +41,11 @@ const AgeApp = () => {
           }
         }
       }
-    } else if (inputData.getAttribute("id") === "yearData") {
+    } else if (inputData.getAttribute("id") === "yearInput") {
       inputData.value = inputData.value.slice(0, 4);
-      console.log("ano");
+      if (+inputData.value > actualYear){
+        inputData.value = actualYear + "";
+      }
     }
   };
 
@@ -88,13 +94,13 @@ const AgeApp = () => {
       </div>
       <div className="resultDate-container">
         <h1 className="years">
-          <p>{years}</p> years
+          <p>{actualYear}</p> years
         </h1>
         <h1 className="months">
-          <p>{months}</p> months
+          <p>{actualMonth}</p> months
         </h1>
         <h1 className="days">
-          <p>{days}</p> days
+          <p>{actualDay}</p> days
         </h1>
       </div>
     </div>
