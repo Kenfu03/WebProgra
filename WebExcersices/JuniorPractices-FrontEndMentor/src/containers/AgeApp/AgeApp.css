@@ -47,26 +47,22 @@
 .inputDate-container .warning{
     margin-top: 10px;
     font-size: 10px;
-    display: none;
     color: var(--secundary-color);
 }
 
 .inputDate-container #dayWarning {
     grid-column-start: -4;
     grid-column-end: -3;
-    display: block;
 
 }
 .inputDate-container #monthWarning {
     grid-column-start: -3;
     grid-column-end: -2;
-    /* display: block; */
 }
 
 .inputDate-container #yearWarning {
     grid-column-start: -2;
     grid-column-end: -1;
-    display: block;
 }
 
 .btn-container{
