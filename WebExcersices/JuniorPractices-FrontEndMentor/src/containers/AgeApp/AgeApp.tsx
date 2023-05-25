@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { differenceInYears, set } from "date-fns";
 import "./AgeApp.css";
 import btnImage from "./assets/images/icon-arrow.svg";
 
@@ -62,11 +63,24 @@ const AgeApp = () => {
     year: "",
   });
 
-  const setMaxD = (month: number) => {
+  const isLeapYear = (year: number): Boolean => {
+    if (year % 4 === 0) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const setMaxD = (month: number, forInput: boolean): number => {
     if (month === 2) {
-      return 28;
+      if (forInput) {
+        forInput = false;
+        return isLeapYear(+inputDate.year) ? 29 : 28;
+      } else {
+        return isLeapYear(actualYear) ? 29 : 28;
+      }
     } else if (month <= 7) {
-      if (month % 2 === 0){
+      if (month % 2 === 0) {
         return 30;
       } else {
         return 31;
@@ -80,11 +94,22 @@ const AgeApp = () => {
     }
   };
 
+  const displayInvalidMessage = ():boolean => {
+    if (maxDays < +inputDate.day) {
+      displayWarningMessage("dayInput", "block", invalidDay);
+      return true
+    }
+    else {
+      displayWarningMessage("dayInput", "none", emptyWarning)
+      return false;
+    }
+  }
+
   const displayWarningMessage = (
     itemWarning: string | null,
     display: Display,
     warningMsg: string
-  ) => {
+  ): void => {
     if (itemWarning === "dayInput") {
       setWarningDayObj({
         ...warningDayObj,
@@ -104,21 +129,67 @@ const AgeApp = () => {
     }
   };
 
-  const results = () => {
-    if ((actualDay - +inputDate.day) < 0){
-      setResultDate({
-        ...resultDate,
-        day: ((maxDays + (actualDay - +inputDate.day)) + "")
-      })
+  const checkNoEmpty = (): boolean => {
+    if (
+      inputDate.month !== "" &&
+      inputDate.day !== "" &&
+      inputDate.year !== ""
+    ) {
+      return true;
     } else {
+      return false;
+    }
+  };
+
+  const dayResult = (): number => {
+    if (+inputDate.day > actualDay) {
+      console.log("despues");
+      return actualDay + setMaxD(actualMonth - 1, false) - +inputDate.day;
+    } else {
+      console.log("antes");
+      return actualDay - +inputDate.day;
+    }
+  };
+
+  const monthResult = (): number => {
+    if (+inputDate.month > actualMonth) {
+      return +inputDate.day > actualDay
+        ? actualMonth + 12 - (+inputDate.month + 1)
+        : actualMonth + 12 - +inputDate.month;
+    } else if (+inputDate.month === actualMonth) {
+      return 0;
+    } else {
+      return +inputDate.day > actualDay
+        ? actualMonth - (+inputDate.month + 1)
+        : actualMonth - +inputDate.month;
+    }
+  };
+
+  const results = ():void => {
+    const actualDate: Date = new Date(actualYear, actualMonth, actualDay);
+    const dateGived: Date = new Date(
+      +inputDate.year,
+      +inputDate.month,
+      +inputDate.day
+    );
+    if (checkNoEmpty() && !displayInvalidMessage()) {
       setResultDate({
-        ...resultDate,
-        day: ((actualDay - +inputDate.day) + "")
+        day: dayResult() + "",
+        month: monthResult() + "",
+        year: differenceInYears(actualDate, dateGived) + "",
+      });
+    }
+    else {
+      setResultDate({
+        day: "",
+        month: "",
+        year: "",
       })
     }
-  }
- 
-  const verifyContent = (inputElement: HTMLInputElement) => {
+    console.log(maxDays);
+  };
+
+  const verifyContent = (inputElement: HTMLInputElement): void => {
     let dayInputVerify: boolean =
       inputElement.getAttribute("id") === "dayInput";
     let monthInputVerify: boolean =
@@ -167,7 +238,7 @@ const AgeApp = () => {
         if (+inputElement.value > 12) {
           inputElement.value = "12";
         }
-        setMaxDays(setMaxD(+inputElement.value));
+        setMaxDays(setMaxD(+inputElement.value, true));
         setInputDate({ ...inputDate, month: inputElement.value });
       }
     } else if (yearInputVerify) {
@@ -184,25 +255,7 @@ const AgeApp = () => {
       }
       setInputDate({ ...inputDate, year: inputElement.value });
     }
-
-    if (maxDays < +inputDate.day){
-      setInputDate({
-        ...inputDate,
-        day: maxDays + ""
-      })
-      displayWarningMessage(
-        "dayInput",
-        "block",
-        invalidDay
-      )
-    }
-    results();
-  };
-
-  const test = () => {
-    console.log(inputDate.day);
-    console.log(inputDate.month);
-    console.log(inputDate.year);
+    displayInvalidMessage();
   };
 
   return (
@@ -238,19 +291,19 @@ const AgeApp = () => {
       </div>
       <div className="btn-container">
         <div className="line"></div>
-        <button onClick={() => test()}>
+        <button onClick={() => results()}>
           <img src={btnImage} alt="arrowButton" />
         </button>
       </div>
       <div className="resultDate-container">
         <h1 className="years">
-          <p>{inputDate.year === "" ? "- -" : resultDate.day}</p> years
+          <p>{resultDate.year === "" ? "- -" : resultDate.year}</p> years
         </h1>
         <h1 className="months">
-          <p>{inputDate.month === "" ? "- -" : resultDate.month}</p> months
+          <p>{resultDate.month === "" ? "- -" : resultDate.month}</p> months
         </h1>
         <h1 className="days">
-          <p>{inputDate.day === "" ? "- -" : resultDate.year}</p> days
+          <p>{resultDate.day === "" ? "- -" : resultDate.day}</p> days
         </h1>
       </div>
     </div>
