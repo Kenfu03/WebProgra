@@ -1,4 +1,6 @@
 :root {
+
+    /* Age Calculator App */
     background-color: lightblue;
     font-family: 'Poppins', sans-serif;
 
@@ -7,6 +9,15 @@
     --light-gray: hsl(0, 0%, 86%);
     --dark-gray:  hsl(0, 1%, 44%);
     --black-color:  hsl(0, 0%, 8%);
+
+
+    /* Pricing with Toggle App */
+    --linear-gradient: linear-gradient(170deg, rgba(163,168,240,1) 0%, rgba(105,111,221,1) 100%);
+
+    --very-light-grayish-blue: hsl(240, 78%, 98%);
+    --light-grayish-blue: hsl(234, 14%, 74%);
+    --grayish-blue: hsl(233, 13%, 49%);
+    --dark-grayish-blue: hsl(232, 13%, 33%);
 }
 
 input[type=number]{

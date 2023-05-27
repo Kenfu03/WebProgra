@@ -1,5 +1,5 @@
 import './App.css'
-import { AgeApp } from './containers'
+import { AgeApp, PricingWithToggle } from './components'
 
 function App() {
 
@@ -7,6 +7,7 @@ function App() {
     <>
       <div className="principal-container">
         <AgeApp/>
+        <PricingWithToggle/>
       </div>
     </>
   )

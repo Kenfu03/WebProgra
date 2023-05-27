@@ -1,1 +1,1 @@
-export {default as AgeApp} from "./AgeApp/AgeApp"
+export { default as PricingComponent } from "./PricingComponent/PricingComponent"
