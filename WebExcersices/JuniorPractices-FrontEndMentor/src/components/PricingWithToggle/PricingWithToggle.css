@@ -50,3 +50,24 @@
     height: 15px;
     border-radius: 10px;
 }
+
+.pricing-data-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+@media (width > 375px){
+    .pricing-container{
+        max-width: 90%;
+        width: auto;
+        padding: 50px 200px;
+    }
+    
+    .pricing-data-container{
+        flex-direction: row;
+        gap: 0;
+        height: auto;
+    }
+}

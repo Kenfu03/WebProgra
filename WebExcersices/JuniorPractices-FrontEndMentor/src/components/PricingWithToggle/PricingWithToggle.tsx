@@ -3,7 +3,7 @@ import "./PricingWithToggle.css";
 import { PricingComponent } from "../../containers";
 
 interface StyleTypes {
-  justifyContent: "flex-start" | "flex-end"
+  justifyContent: "flex-start" | "flex-end";
 }
 
 const PricingWithToggle = () => {
@@ -36,66 +36,69 @@ const PricingWithToggle = () => {
     setBasicPrice("199.99");
     setProfessionalPrice("249.99");
     setMasterPrice("399.99");
-  }
+  };
 
   const monthlyPrice = () => {
     setBasicPrice("19.99");
     setProfessionalPrice("24.99");
     setMasterPrice("39.99");
-  }
+  };
 
   const handleClick = () => {
-    if (buttonStyle.justifyContent === "flex-start"){
+    if (buttonStyle.justifyContent === "flex-start") {
       setButtonStyle({
-        justifyContent: "flex-end"
-      })
+        justifyContent: "flex-end",
+      });
       monthlyPrice();
     } else {
       setButtonStyle({
-        justifyContent: "flex-start"
-      })
+        justifyContent: "flex-start",
+      });
       anuallyPrice();
     }
-    
-  }
+  };
   return (
     <div className="pricing-container">
       <div className="pricing-tittle-container">
         <h1>Our Pricing</h1>
         <div className="button-container">
           <p>Annually</p>
-          <div className="switch" 
-              style={buttonStyle}
-              onClick={() => handleClick()}>
+          <div
+            className="switch"
+            style={buttonStyle}
+            onClick={() => handleClick()}
+          >
             <div className="circle"></div>
           </div>
           <p>Monthly</p>
         </div>
       </div>
-      <PricingComponent
-        tittle="Basic"
-        price={basicPrice}
-        storage={basicObject.storage}
-        users={basicObject.users}
-        capacity={basicObject.capacity}
-        special={false}
-      />
-      <PricingComponent
-        tittle="Professional"
-        price={professionalPrice}
-        storage={professionalObject.storage}
-        users={professionalObject.users}
-        capacity={professionalObject.capacity}
-        special={true}
-      />
-      <PricingComponent
-        tittle="Master"
-        price={masterPrice}
-        storage={masterObject.storage}
-        users={masterObject.users}
-        capacity={masterObject.capacity}
-        special={false}
-      />
+      <div className="pricing-data-container">
+        <PricingComponent
+          tittle="Basic"
+          price={basicPrice}
+          storage={basicObject.storage}
+          users={basicObject.users}
+          capacity={basicObject.capacity}
+          special={false}
+        />
+        <PricingComponent
+          tittle="Professional"
+          price={professionalPrice}
+          storage={professionalObject.storage}
+          users={professionalObject.users}
+          capacity={professionalObject.capacity}
+          special={true}
+        />
+        <PricingComponent
+          tittle="Master"
+          price={masterPrice}
+          storage={masterObject.storage}
+          users={masterObject.users}
+          capacity={masterObject.capacity}
+          special={false}
+        />
+      </div>
     </div>
   );
 };
