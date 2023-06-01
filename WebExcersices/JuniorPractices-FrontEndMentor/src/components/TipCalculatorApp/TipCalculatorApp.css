@@ -1,0 +1,150 @@
+.principal-container{
+    font-family: var(--font-tipApp);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 30px 0;
+
+    gap: 40px;
+}
+
+.tipApp-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    max-width: 375px;
+    padding: 25px;
+
+    background-color: white;
+    border-radius: 20px;
+}
+
+.tipApp-container h1{
+    color: var(--dark-grayish-cyan);
+    font-size: 16px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    width: 325px;
+}
+
+.bill, .selectTip, .personNumber{
+    width: 100%;
+}
+
+.bill h1, .selectTip h1, .personNumber h1{
+    margin: 2px;
+}
+
+.specialInput {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.specialInput img{
+    position: relative;
+    left: 20px;
+    top: -38px;
+}
+
+.specialInput input {
+    color: var(--very-dark-cyan);
+    background-color: var(--very-light-grayish-cyan);
+    font-family: var(--font-tipApp);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 24px;
+    text-align: right;
+    max-width: 285px;
+    outline: none;
+    
+    border: none;
+}
+
+.specialInput input:hover, .specialInput input:focus{
+    border: 2px solid var(--strong-cyan);
+}
+
+.optionsTip-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.defaultButton {
+    font-family: var(--font-tipApp);
+    font-weight: 700;
+    font-size: 20px;
+    padding: 10px 0;
+    color: var(--very-light-grayish-cyan);
+    background-color: var(--very-dark-cyan);
+    border-radius: 6px;
+    cursor: pointer;
+
+
+    border: none;
+}
+
+.defaultButton:hover, .result button:hover{
+    background-color: var(--light-grayish-cyan);
+    color: var(--very-dark-cyan);
+}
+
+.defaultButton:focus {
+    color: var(--very-dark-cyan);
+    background-color: var(--strong-cyan);
+}
+
+.result {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--very-dark-cyan);
+    padding: 40px 25px 25px;
+
+    border-radius: 15px;
+}
+
+.result .tittleResult{
+    color: var(--very-light-grayish-cyan);
+    margin: 0 80px 20px 0;
+}
+
+.result .tittleResult span{
+    color: var(--grayish-cyan);
+    font-size: 14px;
+    font-weight: 400;
+    display: block;
+}
+
+.result .finalResult{
+    color: var(--strong-cyan);
+    font-size: 30px;
+    margin: 0;
+}
+
+.result button{
+    font-family: var(--font-tipApp);
+    font-weight: 700;
+    font-size: 20px;
+    width: 100%;
+    padding: 10px 0;
+    color: var(--very-dark-cyan);
+    background-color: var(--strong-cyan);
+    border-radius: 6px;
+    margin-top: 15px;
+    cursor: pointer;
+
+    border: none;
+}
+
