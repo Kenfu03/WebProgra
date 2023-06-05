@@ -1,6 +1,13 @@
-:root {
+* {
+    margin: 0;
+    padding: 0;
+}
 
-    background-color: lightblue;
+
+:root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     /* Age Calculator App */
 
@@ -43,6 +50,21 @@
     --grayish-cyan: hsl(184, 14%, 56%);
     --light-grayish-cyan: hsl(185, 41%, 84%);
     --very-light-grayish-cyan: hsl(189, 41%, 97%);
+
+    /* Interactive Card Details Form */
+
+    /* Font */
+    
+
+    /* colors */
+    /* Primary */
+    --purple-focus: rgba(96,5,148,1);
+    --error-color: hsl(0, 100%, 66%);
+    /* Secundary */
+    --light-grayish-violet: hsl(270, 3%, 87%);
+    --dark-grayish-violet: hsl(279, 6%, 55%);
+    --very-dark-violet: hsl(278, 68%, 11%);
+
 }
 
 input[type=number]{

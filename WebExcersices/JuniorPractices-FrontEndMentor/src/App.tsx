@@ -1,5 +1,5 @@
 import './App.css'
-import { AgeApp, PricingWithToggle, TipCalculatorApp } from './components'
+import { AgeApp, PricingWithToggle, TipCalculatorApp, InteractiveCard } from './components'
 
 function App() {
 
@@ -7,8 +7,9 @@ function App() {
     <>
       <div className="principal-container">
         {/* <AgeApp/>
-        <PricingWithToggle/> */}
-        <TipCalculatorApp/>
+        <PricingWithToggle/> 
+        <TipCalculatorApp/> */ }
+        <InteractiveCard/>
       </div>
     </>
   )

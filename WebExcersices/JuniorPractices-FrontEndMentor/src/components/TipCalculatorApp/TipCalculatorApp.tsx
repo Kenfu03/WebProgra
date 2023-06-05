@@ -8,27 +8,20 @@ const TipCalculatorApp = () => {
   const buttonsValues: string[] = ["5%", "10%", "15%", "25%", "50%"];
   const [bill, setBill] = useState<number>();
   const [persons, setPersons] = useState<number>();
-  const [personResult, setPersonResult] = useState<number>(0);
-  const [totalResult, setTotalResult] = useState<number>(0);
-  const [porcentaje, setPorcentaje] = useState<number>(0);
+  const [porcentage, setPorcentage] = useState<number>(0);
 
-  const allowOnlyNumbers = (inputElement: HTMLInputElement) => {
-    const billInput = inputElement.getAttribute("id") === "billInput";
-    const personInput = inputElement.getAttribute("id") === "personInput";
+  const validateInputs = (inputElement: HTMLInputElement) => {
+    const billInput: boolean = inputElement.getAttribute("id") === "billInput";
 
     if (billInput) {
-			console.log(validateInput(inputElement.value))
-      const validateNumber:string = validateInput(inputElement.value)
-        ? inputElement.value
-        : bill + "";
-      setBill(+validateNumber);
-      
+      inputElement.value = inputElement.value.replace(/[^0-9.]/g, "");
+      setBill(Number(inputElement.value));
+    } else {
+      if (Number(inputElement.value) >= 1) {
+        inputElement.value = inputElement.value.replace(/\D/g, "");
+        setPersons(Number(inputElement.value));
+      }
     }
-		console.log(bill);
-  };
-
-  const validateInput = (value: string): boolean => {
-    return /^\d*\.?\d*$/.test(value);
   };
 
   return (
@@ -43,8 +36,7 @@ const TipCalculatorApp = () => {
                 type="text"
                 placeholder="0"
                 id="billInput"
-                value={bill}
-                onChange={(e) => allowOnlyNumbers(e.target)}
+                onChange={(e) => validateInputs(e.target)}
               />
               <img src={dollar} alt="$ simbol" />
             </div>
@@ -56,12 +48,14 @@ const TipCalculatorApp = () => {
                 <button
                   className="defaultButton"
                   key={i}
-                  onClick={() => setPorcentaje(+item.slice(0, item.length - 1))}
+                  onClick={() =>
+                    setPorcentage(Number(item.slice(0, item.length - 1)))
+                  }
                 >
                   {item}
                 </button>
               ))}
-              <input type="text" value={porcentaje} readOnly />
+              <input type="text" />
             </div>
           </div>
           <div className="personNumber">
@@ -71,10 +65,7 @@ const TipCalculatorApp = () => {
                 type="text"
                 placeholder="0"
                 id="personInput"
-                value={persons}
-                onChange={(e) =>
-                  (e.target.value = e.target.value.replace(/[^0-9.]/g, ""))
-                }
+                onChange={(e) => validateInputs(e.target)}
               />
               <img src={person} alt="person simbol" />
             </div>
@@ -85,12 +76,12 @@ const TipCalculatorApp = () => {
           <h1 className="tittleResult">
             Tip Amount <span>/ person</span>
           </h1>
-          <h1 className="finalResult">${personResult}</h1>
+          <h1 className="finalResult">${bill && persons ? (bill*(porcentage/100))/persons : 0.00}</h1>
           <h1 className="tittleResult">
             Total <span>/ tip</span>
           </h1>
-          <h1 className="finalResult">${totalResult}</h1>
-          {totalResult !== 0 && <button>RESET</button>}
+          <h1 className="finalResult">${bill ? bill*(porcentage/100) : 0.00}</h1>
+          {bill && <button>RESET</button>}
         </div>
       </div>
     </div>
