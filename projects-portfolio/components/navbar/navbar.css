@@ -1,0 +1,16 @@
+.navbar-container {
+  background-color: black;
+  padding: 5%;
+  margin: 0;
+  display: flex;
+  gap: 40px;
+}
+
+.navbar-container li {
+  list-style-type: none;
+}
+
+.local-link {
+  text-decoration: none;
+  color: white;
+}
